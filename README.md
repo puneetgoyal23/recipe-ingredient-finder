@@ -8,7 +8,7 @@ This web application helps hostel students find quick and easy meals based on th
 
 * Select or enter available ingredients (e.g., Maggi, bread, eggs)
 * Get quick meal suggestions instantly
-* Filter meals based on time (e.g., under 10 minutes)
+* Filter meals based on time required (e.g., under 15 minutes)
 * Filter low-cost recipes suitable for students
 * Sort meals by simplicity or name
 * View cooking instructions
