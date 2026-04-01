@@ -1,33 +1,40 @@
-const button = document.getElementById("searchBtn");
-const input = document.getElementById("ingredientInput");
-const container = document.getElementById("mealContainer");
-const loading = document.getElementById("loading");
+let button = document.getElementById("searchBtn");
+let input = document.getElementById("ingredientInput");
+let container = document.getElementById("mealContainer");
+let loading = document.getElementById("loading");
 
-button.addEventListener("click", async () => {
-  const ingredient = input.value;
+function searchMeals() {
+  let ingredient = input.value;
 
   loading.style.display = "block";
   container.innerHTML = "";
 
-  const response = await fetch(
-    "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
-  );
+  fetch("https://themealdb.com/api/json/v1/1/filter.php?i=" + ingredient)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      loading.style.display = "none";
 
-  const data = await response.json();
+      if (data.meals == null) {
+        container.innerHTML = "<p>No meals found</p>";
+      } else {
+        data.meals.forEach(function (meal) {
+          container.innerHTML += `
+            <div class="meal-card">
+              <img src="${meal.strMealThumb}">
+              <h3>${meal.strMeal}</h3>
+            </div>
+          `;
+        });
+      }
+    });
+}
 
-  loading.style.display = "none";
+button.onclick = searchMeals;
 
-  if (data.meals === null) {
-    container.innerHTML = "<p>No meals found</p>";
-    return;
+input.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    searchMeals();
   }
-
-  data.meals.forEach((meal) => {
-    container.innerHTML += `
-      <div class="meal-card">
-        <img src="${meal.strMealThumb}">
-        <h3>${meal.strMeal}</h3>
-      </div>
-    `;
-  });
 });
