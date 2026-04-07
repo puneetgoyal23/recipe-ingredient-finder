@@ -211,15 +211,14 @@ h2 {
   position: fixed;
   top: 20px;
   right: 20px;
+  z-index: 1000;
   width: auto;
   padding: 8px 12px;
   font-size: 14px;
   border-radius: 10px;
   background-color: #333;
   color: white;
-  z-index: 1000;
 }
-
 #themeBtn:hover {
   background-color: #555;
 }
