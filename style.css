@@ -1,10 +1,10 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #121212, #1d1d1d);
-  color: white;
   padding: 30px 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #111, #1f1f1f);
+  color: white;
 }
 
 h1 {
@@ -17,7 +17,7 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 input {
@@ -36,47 +36,64 @@ input::placeholder {
 }
 
 button {
-  padding: 15px 22px;
+  padding: 14px 20px;
   border: none;
-  border-radius: 14px;
+  border-radius: 12px;
   background: linear-gradient(to right, #ff7a00, #ff9800);
   color: white;
   font-size: 16px;
-  font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(255, 122, 0, 0.4);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+select {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #2a2a2a;
+  color: white;
+  font-size: 15px;
 }
 
 #loading {
+  display: none;
   text-align: center;
   margin-bottom: 20px;
-  display: none;
   font-size: 18px;
 }
 
-#mealContainer {
+#mealContainer,
+#favoriteContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  gap: 22px;
   max-width: 1200px;
   margin: auto;
 }
 
 .meal-card {
   background-color: #232323;
-  border-radius: 20px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   transition: 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
 .meal-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 
 .meal-card img {
@@ -86,10 +103,66 @@ button:hover {
 }
 
 .meal-card h3 {
-  padding: 18px;
-  margin: 0;
-  font-size: 20px;
+  margin: 15px 15px 8px;
+  font-size: 22px;
+}
+
+.meal-card p {
+  margin: 0 15px 15px;
+  color: #ddd;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.favorite-btn {
+  margin: 0 15px 10px;
+  background-color: #c40000;
+}
+
+.favorite-btn:hover {
+  background-color: #e00000;
+}
+
+.view-btn {
+  margin: 0 15px 15px;
+  background-color: #2563eb;
+}
+
+.view-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.remove-btn {
+  margin: 0 15px 15px;
+  background-color: #444;
+}
+
+.remove-btn:hover {
+  background-color: #666;
+}
+
+#clearFavBtn {
+  width: 250px;
+  margin: 0 auto 20px;
+  display: block;
+  background-color: #7c2d12;
+}
+
+#clearFavBtn:hover {
+  background-color: #9a3412;
+}
+
+.empty-message {
   text-align: center;
+  font-size: 20px;
+  color: #ccc;
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 600px) {
@@ -97,13 +170,56 @@ button:hover {
     font-size: 34px;
   }
 
-  .search-box {
+  .search-box,
+  .controls {
     flex-direction: column;
     align-items: center;
   }
 
   input,
-  button {
+  button,
+  select {
     width: 90%;
   }
+}
+
+.light-mode {
+  background: #f5f5f5;
+  color: black;
+}
+
+.light-mode .meal-card {
+  background: white;
+  color: black;
+}
+
+.light-mode input,
+.light-mode select {
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+}
+
+.light-mode h1,
+.light-mode h2,
+.light-mode p,
+.light-mode h3 {
+  color: black;
+}
+
+#themeBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: auto;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 10px;
+  background-color: #333;
+  color: white;
+  z-index: 1000;
+}
+
+#themeBtn:hover {
+  background-color: #555;
 }
