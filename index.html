@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hostel Quick Meal Finder</title>
+  <title>Hostel Meal Finder</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,14 +14,31 @@
     <input
       type="text"
       id="ingredientInput"
-      placeholder="Enter ingredient (egg, bread, maggi)"
+      placeholder="Enter ingredient like egg, bread, maggi"
     >
     <button id="searchBtn">Search</button>
+  </div>
+
+  <div class="controls">
+    <select id="sortSelect">
+      <option value="">Sort Meals</option>
+      <option value="az">A-Z</option>
+      <option value="za">Z-A</option>
+    </select>
+
+    <select id="filterSelect">
+      <option value="all">All Meals</option>
+      <option value="veg">Vegetarian</option>
+      <option value="nonveg">Non-Vegetarian</option>
+    </select>
   </div>
 
   <div id="loading">Loading meals...</div>
 
   <div id="mealContainer"></div>
+
+  <h2>❤️ Favorite Meals</h2>
+  <div id="favoriteContainer"></div>
 
   <script src="sketch.js"></script>
 </body>
