@@ -36,6 +36,7 @@ function showMeals(data) {
         card.className = "meal-card";
 
         card.innerHTML = `
+        <div style="display: flex; flex-direction: column; gap: 10px;">
           <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
           <h3>${meal.strMeal}</h3>
 
@@ -43,9 +44,11 @@ function showMeals(data) {
             <b>Ingredients:</b><br>
             ${ingredients.join(", ")}
           </p>
-
+        </div>
+        <div style="display: flex; flex-direction: column; margin-top: 15px;">
           <button class="favorite-btn">❤️ Favorite</button>
           <button class="view-btn">View Recipe</button>
+        </div>
         `;
 
         card.querySelector(".favorite-btn").onclick = function () {

@@ -89,6 +89,7 @@ select {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   transition: 0.3s;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
 }
 
@@ -96,18 +97,18 @@ select {
   transform: translateY(-6px);
 }
 
-.meal-card img {
+.meal-card div img {
   width: 100%;
   height: 220px;
   object-fit: cover;
 }
 
-.meal-card h3 {
+.meal-card div h3 {
   margin: 15px 15px 8px;
   font-size: 22px;
 }
 
-.meal-card p {
+.meal-card div p {
   margin: 0 15px 15px;
   color: #ddd;
   font-size: 15px;
