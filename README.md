@@ -18,10 +18,6 @@ A web app that helps hostel students find meals using ingredients they already h
 - JavaScript
 - TheMealDB API
 
-## How to Run
-1. Download the project
-2. Open `index.html` in browser
-
 ## Deployment
 The project is deployed using GitHub Pages.
 
